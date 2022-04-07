@@ -1,0 +1,61 @@
+{
+  "root": "apps/spelling-bee-solver",
+  "sourceRoot": "apps/spelling-bee-solver/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nxext/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/spelling-bee-solver",
+        "baseHref": "/",
+        "configFile": "@nxext/vite/plugins/vite"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/spelling-bee-solver/src/environments/environment.ts",
+              "with": "apps/spelling-bee-solver/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nxext/vite:dev",
+      "options": {
+        "outputPath": "dist/apps/spelling-bee-solver",
+        "baseHref": "/",
+        "configFile": "@nxext/vite/plugins/vite"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/spelling-bee-solver/src/environments/environment.ts",
+              "with": "apps/spelling-bee-solver/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/spelling-bee-solver/**/*.{ts,js,tsx,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/spelling-bee-solver"],
+      "options": {
+        "jestConfig": "apps/spelling-bee-solver/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
