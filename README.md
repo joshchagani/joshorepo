@@ -1,94 +1,117 @@
+# 🎮 Joshorepo
 
+A monorepo for all projects going forward.
 
-# Joshorepo
+## 💻 Adding capabilities to your workspace
 
-This project was generated using [Nx](https://nx.dev).
+Core plugins were switched out in favor more modern build tools; notably vite and vitest. Below are some community and core plugins used in this repo:
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+[Vite](https://nxext.dev/docs/vite/overview.html)<br>
+`npm install --save-dev @nxext/vite`
 
-🔎 **Smart, Fast and Extensible Build System**
+[Vitest](https://nxext.dev/docs/vitest/overview.html)<br>
+`npm install --save-dev @nxext/vitest`
 
-## Adding capabilities to your workspace
+Web (no framework frontends)<br>
+`npm install --save-dev @nrwl/web`
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## 🔨 Generate an applications and tests
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+Generate a Vite application<br>
+`npx nx g @nxext/vite:app my-app`
 
-Below are our core plugins:
+Generate testing application with Vitest<br>
+`npx nx g @nxext/vitest:vitest-project my-app --framework=generic`
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+## 📕 Generate a library
 
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
+Generate a Vite library<br>
+`npx nx g @nxext/vite:library my-lib`
 
 Libraries are shareable across libraries and applications. They can be imported from `@joshorepo/mylib`.
 
-## Development server
+## 🚧 Development server
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `npx nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## 🚀 Build
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+Run `npx nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Build
+## 🧪 Running tests
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### unit
 
-## Running unit tests
+Run `npx nx run my-app:test` to execute the unit tests via [Vitest](https://vitest.dev).
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+Run `npx nx affected:test` to execute the unit tests affected by a change.
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+### e2e
 
-## Running end-to-end tests
+> End-to-end tests coming soon.
 
 Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
 
 Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
-## Understand your workspace
+## 🎨 Formatting and linting
+
+Run `npx nx run my-app:lint`
+
+## 📈 Understand your workspace
 
 Run `nx graph` to see a diagram of the dependencies of your projects.
 
-## Further help
+## 📝 Commit message
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) with [Angular's](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#rules) type and scope as reference.
 
+```
+<type>[optional scope]: <description>
 
+[optional body]
 
-## ☁ Nx Cloud
+[optional footer(s)]
+```
 
-### Distributed Computation Caching & Distributed Task Execution
+### Type
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+- **build**: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- **ci**: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+- **docs**: Documentation only changes
+- **feat**: A new feature
+- **fix**: A bug fix
+- **perf**: A code change that improves performance
+- **refactor**: A code change that neither fixes a bug nor adds a feature
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- **test**: Adding missing tests or correcting existing tests
 
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+### Scope
 
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+- **animations**
+- **common**
+- **compiler**
+- **compiler-cli**
+- **core**
+- **elements**
+- **forms**
+- **http**
+- **language-service**
+- **platform-browser**
+- **platform-browser-dynamic**
+- **platform-server**
+- **platform-webworker**
+- **platform-webworker-dynamic**
+- **router**
+- **service-worker**
+- **upgrade**
 
-Visit [Nx Cloud](https://nx.app/) to learn more.
+### Subject
+
+The subject contains a succinct description of the change, use the imperative, present tense: "change" not "changed" nor "changes", doesn't capitalize the first letter, and no dot (.) at the end.
+
+## 🔎 Smart, Fast and Extensible Build System
+
+This project was generated using [Nx](https://nx.dev).
+
+<img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="150">
