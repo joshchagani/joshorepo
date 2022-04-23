@@ -6,33 +6,27 @@ A monorepo for all projects going forward.
 
 Core plugins were switched out in favor more modern build tools; notably vite and vitest. Below are some community and core plugins used in this repo:
 
-[Vite](https://nxext.dev/docs/vite/overview.html)<br>
-`npm install --save-dev @nxext/vite`
-
-[Vitest](https://nxext.dev/docs/vitest/overview.html)<br>
-`npm install --save-dev @nxext/vitest`
+[React](https://reactjs.org)<br>
+`npm install --save-dev @nrwl/react`
 
 Web (no framework frontends)<br>
 `npm install --save-dev @nrwl/web`
 
 ## 🔨 Generate an applications and tests
 
-Generate a Vite application<br>
-`npx nx g @nxext/vite:app my-app`
-
-Generate testing application with Vitest<br>
-`npx nx g @nxext/vitest:vitest-project my-app --framework=generic`
+Generate a React application<br>
+`npx nx g @nrwl/react:app my-app`
 
 ## 📕 Generate a library
 
 Generate a Vite library<br>
-`npx nx g @nxext/vite:library my-lib`
+`npx nx g @nrwl/react:lib my-lib`
 
 Libraries are shareable across libraries and applications. They can be imported from `@joshorepo/mylib`.
 
 ## 🚧 Development server
 
-Run `npx nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `npx nx serve my-app` for a dev server. Navigate to http://localhost:3000/. The app will automatically reload if you change any of the source files.
 
 ## 🚀 Build
 
@@ -42,13 +36,9 @@ Run `npx nx build my-app` to build the project. The build artifacts will be stor
 
 ### unit
 
-Run `npx nx run my-app:test` to execute the unit tests via [Vitest](https://vitest.dev).
-
 Run `npx nx affected:test` to execute the unit tests affected by a change.
 
 ### e2e
-
-> End-to-end tests coming soon.
 
 Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
 

@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "spelling-bee-solver": "apps/spelling-bee-solver"
+    "spelling-bee-solver": "apps/spelling-bee-solver",
+    "spelling-bee-solver-e2e": "apps/spelling-bee-solver-e2e"
   }
 }
