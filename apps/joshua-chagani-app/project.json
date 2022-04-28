@@ -1,0 +1,70 @@
+{
+  "projectType": "application",
+  "root": "apps/joshua-chagani-app",
+  "sourceRoot": "apps/joshua-chagani-app/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/joshua-chagani-app",
+        "compiler": "swc",
+        "index": "apps/joshua-chagani-app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/joshua-chagani-app/src/main.ts",
+        "polyfills": "apps/joshua-chagani-app/src/polyfills.ts",
+        "tsConfig": "apps/joshua-chagani-app/tsconfig.app.json",
+        "assets": [
+          "apps/joshua-chagani-app/src/favicon.ico",
+          "apps/joshua-chagani-app/src/assets"
+        ],
+        "styles": ["apps/joshua-chagani-app/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/joshua-chagani-app/src/environments/environment.ts",
+              "with": "apps/joshua-chagani-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "joshua-chagani-app:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "joshua-chagani-app:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/joshua-chagani-app/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/joshua-chagani-app"],
+      "options": {
+        "jestConfig": "apps/joshua-chagani-app/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
