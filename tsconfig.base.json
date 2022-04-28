@@ -14,7 +14,20 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@joshorepo/spelling-bee-solver": [
+        "libs/spelling-bee-solver/src/index.ts"
+      ],
+      "@joshorepo/spelling-bee-solver/data": [
+        "libs/spelling-bee-solver/data/src/index.ts"
+      ],
+      "@joshorepo/spelling-bee-solver/machine": [
+        "libs/spelling-bee-solver/machine/src/index.ts"
+      ],
+      "@joshorepo/spelling-bee-solver/ui": [
+        "libs/spelling-bee-solver/ui/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

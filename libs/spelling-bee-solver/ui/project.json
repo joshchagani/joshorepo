@@ -1,0 +1,23 @@
+{
+  "root": "libs/spelling-bee-solver/ui",
+  "sourceRoot": "libs/spelling-bee-solver/ui/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/spelling-bee-solver/ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/spelling-bee-solver/ui"],
+      "options": {
+        "jestConfig": "libs/spelling-bee-solver/ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

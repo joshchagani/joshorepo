@@ -1,0 +1,85 @@
+{
+  "root": "apps/spelling-bee-solver-app",
+  "sourceRoot": "apps/spelling-bee-solver-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "swc",
+        "outputPath": "dist/apps/spelling-bee-solver-app",
+        "index": "apps/spelling-bee-solver-app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/spelling-bee-solver-app/src/main.tsx",
+        "polyfills": "apps/spelling-bee-solver-app/src/polyfills.ts",
+        "tsConfig": "apps/spelling-bee-solver-app/tsconfig.app.json",
+        "assets": [
+          "apps/spelling-bee-solver-app/src/favicon.ico",
+          "apps/spelling-bee-solver-app/src/assets"
+        ],
+        "styles": ["apps/spelling-bee-solver-app/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/spelling-bee-solver-app/src/environments/environment.ts",
+              "with": "apps/spelling-bee-solver-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "spelling-bee-solver-app:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "spelling-bee-solver-app:build:development"
+        },
+        "production": {
+          "buildTarget": "spelling-bee-solver-app:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/spelling-bee-solver-app/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/spelling-bee-solver-app"],
+      "options": {
+        "jestConfig": "apps/spelling-bee-solver-app/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
