@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@joshorepo/joshua-chagani/threejs": [
+        "libs/joshua-chagani/threejs/src/index.ts"
+      ],
       "@joshorepo/spelling-bee-solver": [
         "libs/spelling-bee-solver/src/index.ts"
       ],

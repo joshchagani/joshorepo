@@ -1,0 +1,32 @@
+{
+  "root": "libs/joshua-chagani/threejs",
+  "sourceRoot": "libs/joshua-chagani/threejs/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/joshua-chagani/threejs",
+        "main": "libs/joshua-chagani/threejs/src/index.ts",
+        "tsConfig": "libs/joshua-chagani/threejs/tsconfig.lib.json",
+        "assets": ["libs/joshua-chagani/threejs/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/joshua-chagani/threejs/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/joshua-chagani/threejs"],
+      "options": {
+        "jestConfig": "libs/joshua-chagani/threejs/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

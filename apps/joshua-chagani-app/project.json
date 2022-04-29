@@ -20,7 +20,10 @@
           "apps/joshua-chagani-app/src/favicon.ico",
           "apps/joshua-chagani-app/src/assets"
         ],
-        "styles": ["apps/joshua-chagani-app/src/styles.scss"],
+        "styles": [
+          "apps/joshua-chagani-app/src/styles.scss",
+          "apps/joshua-chagani-app/src/app/app.styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {

@@ -3,6 +3,7 @@
   "projects": {
     "joshua-chagani-app": "apps/joshua-chagani-app",
     "joshua-chagani-app-e2e": "apps/joshua-chagani-app-e2e",
+    "joshua-chagani-threejs": "libs/joshua-chagani/threejs",
     "spelling-bee-solver-app": "apps/spelling-bee-solver-app",
     "spelling-bee-solver-app-e2e": "apps/spelling-bee-solver-app-e2e",
     "spelling-bee-solver-data": "libs/spelling-bee-solver/data",

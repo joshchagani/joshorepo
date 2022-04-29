@@ -3,11 +3,11 @@ import { getGreeting } from '../support/app.po';
 describe('joshua-chagani-app', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+  it('should have a canvas', () => {
+    cy.get('[data-test=canvas]').should('be.be.visible');
+  });
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome joshua-chagani-app');
+  it('should diplay github link', () => {
+    cy.get('[data-test=github-link]').should('be.be.visible');
   });
 });
