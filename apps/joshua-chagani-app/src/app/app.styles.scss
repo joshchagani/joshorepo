@@ -1,41 +1,100 @@
+:root {
+  --padding: 2%;
+  --canvas-size: 60vh;
+}
+
 html {
   background-color: hsl(5.6, 86.1%, 63.3%);
+  background-color: hsl(62, 34%, 71%);
 }
 
 body {
-  max-inline-size: 1200px;
+  max-inline-size: 120rem;
   margin-inline: auto;
+}
+
+header {
+  background-color: hsl(0, 100%, 100%);
+}
+
+h1,
+h2 {
+  padding: var(--padding);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+h2 {
+  inline-size: 90%;
+  margin-inline: auto;
+  font-size: 3rem;
+  line-height: 1.2;
+  text-align: center;
+  color: hsl(0, 0%, 0%);
+}
+
+h2 a {
+  color: hsl(0, 0%, 0%);
+}
+
+.scroll-section {
+  padding-block-start: var(--padding);
+}
+
+.top-spacer {
+  block-size: 10vh;
+}
+
+.header-spacer {
+  block-size: 5vh;
+}
+
+.body-spacer {
+  block-size: 2vh;
 }
 
 canvas {
   inline-size: 100%;
-  block-size: 70vh;
+  block-size: var(--canvas-size);
+}
+
+.canvas-loader {
+  display: grid;
+  place-content: center;
+  font-size: 1.5rem;
+  inline-size: 100%;
+  block-size: var(--canvas-size);
 }
 
 footer {
-  block-size: inherit;
   inline-size: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2%;
-  margin-block-start: -10vh;
+  padding: var(--padding);
 }
 
 footer > * {
   flex-basis: 100%;
-  display: grid;
-  place-content: center;
   border-radius: 1em;
   margin-block-end: 2rem;
   padding-block-end: 1rem;
   transform: translate3d(0, 0, 0);
+  opacity: 1;
+  transition: transform 100ms ease-in-out, opacity 300ms ease-in;
 }
 
-.github-link img,
-.linkedin-link img {
-  inline-size: 200px;
-  block-size: 100%;
+footer a {
+  block-size: 25rem;
+  display: grid;
+  place-content: center;
+}
+
+footer div {
 }
 
 .github-link {
@@ -46,7 +105,37 @@ footer > * {
   background-color: hsl(0, 0%, 100%);
 }
 
+footer img {
+  inline-size: 20rem;
+  block-size: auto;
+}
+
+.invisible {
+  opacity: 0;
+}
+
 @media screen and (min-width: 40em) {
+  h1 {
+    font-size: 7rem;
+  }
+
+  h2 {
+    inline-size: 80%;
+    font-size: 4rem;
+  }
+
+  .top-spacer {
+    block-size: 12vh;
+  }
+
+  .header-spacer {
+    block-size: 10vh;
+  }
+
+  .body-spacer {
+    block-size: 8vh;
+  }
+
   footer {
     block-size: 50vh;
     flex-direction: row;
@@ -55,9 +144,54 @@ footer > * {
   footer > * {
     flex-basis: 48%;
     margin-block-end: 0;
-    transition: transform 100ms ease-in-out;
     &:hover {
       transform: translate3d(0, -1rem, 0);
     }
+  }
+
+  footer a {
+    block-size: 100%;
+  }
+}
+
+.drop-shadow {
+  position: relative;
+}
+
+.drop-shadow::before {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  block-size: 3rem;
+  inline-size: 60%;
+  inset-block-start: 100%;
+  background-color: hsla(0, 0%, 35%, 0.2);
+  border-radius: 80%;
+  filter: blur(10px);
+  left: 50%;
+  transform: translate3d(-50%, 0.5rem, 0);
+  opacity: 0;
+  transition: opacity 200ms ease-in-out, transform 100ms ease-in-out;
+}
+
+.drop-shadow:hover::before {
+  opacity: 1;
+  transform: translate3d(-50%, 1.5rem, 0);
+}
+
+[aria-label='hand waving'] {
+  display: inline-block;
+  animation-name: waving;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes waving {
+  0% {
+    rotate: -15deg;
+  }
+  100% {
+    rotate: 0deg;
   }
 }

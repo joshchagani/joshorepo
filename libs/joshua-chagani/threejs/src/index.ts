@@ -1,1 +1,1 @@
-export * from './lib/myself';
+export * from './lib/model';

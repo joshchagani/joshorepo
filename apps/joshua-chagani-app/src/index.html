@@ -2,35 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>JoshuaChaganiApp</title>
+    <title>Joshua Chagani | full-stacker, tinkerer, developer</title>
     <base href="/" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
     <main>
-      <section>
-        <canvas data-test="canvas" id="canvas-car-model"></canvas>
-      </section>
+      <div class="top-spacer"></div>
+      <header>
+        <h1 data-test="headline">
+          I'm <strong>Joshua Chagani</strong>.<br />Nice to meet you
+          <span role="img" aria-label="hand waving">👋</span>!
+        </h1>
+      </header>
+      <div class="scroll-section">
+        <section>
+          <div class="canvas-loader"><p>Loading...</p></div>
+          <canvas data-test="canvas" id="canvas-car-model"></canvas>
+        </section>
+        <section>
+          <h2>
+            Check out that
+            <span role="img" aria-label="pointing up">👆</span>
+            sweet&nbsp;model!<br />It's built entirely in
+            <a href="https://threejs.org/" target="_blank">threejs</a>. Keep
+            coming back for continuous improvements.
+          </h2>
+        </section>
+        <footer>
+          <div class="github-link invisible drop-shadow">
+            <a data-test="github-link" href="https://github.com/joshchagani"
+              ><img
+                src="./assets/octocat.png"
+                alt="github"
+                width="200"
+                height="200"
+            /></a>
+          </div>
+          <div class="linkedin-link invisible drop-shadow">
+            <a
+              data-test="linkedin-link"
+              href="https://www.linkedin.com/in/joshuachagani/"
+              ><img
+                src="./assets/linkedin-logo.png"
+                alt="linkedin"
+                width="200"
+                height="200"
+            /></a>
+          </div>
+        </footer>
+      </div>
     </main>
-    <footer>
-      <a
-        data-test="github-link"
-        href="https://github.com/joshchagani"
-        class="github-link"
-        ><img src="./assets/octocat.png" alt="github" width="200" height="200"
-      /></a>
-      <a
-        data-test="linkedin-link"
-        href="https://www.linkedin.com/in/joshuachagani/"
-        class="linkedin-link"
-        ><img
-          src="./assets/linkedin-logo.png"
-          alt="linkedin"
-          width="200"
-          height="200"
-      /></a>
-    </footer>
+    <div class="body-spacer"></div>
   </body>
 </html>

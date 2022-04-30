@@ -9,8 +9,9 @@ import {
   DirectionalLight,
   ColorRepresentation,
   Group,
-  Color,
 } from 'three';
+
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 interface IGeometryCoordinates {
   x: number;
@@ -19,6 +20,7 @@ interface IGeometryCoordinates {
 }
 
 const MAX_WIDTH = 1200;
+const BLOCK_SIZE = 0.6;
 
 class ModelCar {
   scene: Scene;
@@ -28,10 +30,10 @@ class ModelCar {
   renderer: any;
   canvasEl: HTMLCanvasElement;
   width: number;
+  controls: any;
 
   constructor(canvasSelector: string) {
     this.scene = new Scene();
-    this.scene.background = new Color(0xf26051);
     this.canvasEl = document.querySelector(canvasSelector)!;
     this.width = window.innerWidth < MAX_WIDTH ? window.innerWidth : MAX_WIDTH;
   }
@@ -44,7 +46,7 @@ class ModelCar {
   }
 
   createCamera() {
-    const aspectRatio = this.width / (window.innerHeight * 0.7);
+    const aspectRatio = this.width / (window.innerHeight * BLOCK_SIZE);
     const cameraWidth = 150;
     const cameraHeight = cameraWidth / aspectRatio;
     this.camera = new OrthographicCamera(
@@ -61,11 +63,14 @@ class ModelCar {
 
   renderScene() {
     this.renderer = new WebGLRenderer({
+      alpha: true,
       antialias: true,
       canvas: this.canvasEl,
     });
-    this.renderer.setSize(window.innerWidth, window.innerHeight * 0.7);
+    this.renderer.setSize(window.innerWidth, window.innerHeight * BLOCK_SIZE);
     this.renderer.render(this.scene, this.camera);
+    const loadingElement = document.querySelector('.canvas-loader');
+    loadingElement?.remove();
   }
 
   static createMesh({
@@ -93,6 +98,13 @@ class ModelCar {
     } else {
       this.scene.add(sceneObject);
     }
+  }
+
+  addOrbitControls() {
+    this.controls = new OrbitControls(this.camera, this.canvasEl);
+    this.controls.autoRotate = true;
+    this.controls.enabled = false;
+    this.controls.update();
   }
 }
 
@@ -128,10 +140,12 @@ carGroup.add(frontWheels);
 carGroup.add(backWheels);
 carGroup.add(main);
 carGroup.add(cabin);
+carGroup.position.y = -15;
 
 modelCar.createLights();
 modelCar.createCamera();
 modelCar.addObjectToScene(carGroup);
+modelCar.addOrbitControls();
 modelCar.renderScene();
 
 window.addEventListener('resize', () => {
@@ -140,3 +154,11 @@ window.addEventListener('resize', () => {
   modelCar.createCamera();
   modelCar.renderScene();
 });
+
+function animate() {
+  requestAnimationFrame(animate);
+  if (modelCar.controls) modelCar.controls.update();
+  modelCar.renderer.render(modelCar.scene, modelCar.camera);
+}
+
+animate();
